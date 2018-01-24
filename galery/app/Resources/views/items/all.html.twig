@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for item in items|default([]) %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td><a href="{{ path("edit_form", {"id": item.id}) }}">{{ item.name }}</a></td>
+            <td>{{ item.description }}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('create_item') }}" method="POST" name="item_create">
+        Name: <input type="text" name="item[name]"> <br>
+        Description: <input type="text" name="item[description]"> <br>
+        <input type="hidden" name="item[_token]" value="{{ csrf_token('item') }}">
+        {#{{ form_widget(form._token) }}#}
+        <input type="submit" value="Създай">
+    </form>
+{% endblock %}
